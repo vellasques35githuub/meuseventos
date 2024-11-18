@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="meuseventos.Viewss.Eventocadastrado"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Black}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        <Label Text="{Binding EventoSelecionado.Descricao}" 
+               TextColor="{StaticResource Magenta}"
+               FontFamily="OpenSansRegular"
+               FontSize="50"
+               HorizontalTextAlignment="Center"/>
+
+        <Frame Margin="10">
+
+            <HorizontalStackLayout>
+
+                <HorizontalStackLayout>
+
+                    <HorizontalStackLayout>
+
+                        <Label Text="Homens: " />
+                        <Label Text="{Binding QntHomens}" 
+                           TextColor="{StaticResource Magenta}" />
+
+                    </HorizontalStackLayout>
+
+                    <Label Text="Mulheres: " />
+                    <Label Text="{Binding QntMulheres}" 
+                           TextColor="{StaticResource Magenta}" />
+
+                </HorizontalStackLayout>
+
+                    
+            </HorizontalStackLayout>
+
+        </Frame>
+
+        <Frame>
+
+
+            <HorizontalStackLayout>
+
+                <Label Text="Evento: " Margin="10" Padding="10" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="{Binding NomeEvento}"
+                       TextColor="{StaticResource Magenta}" />
+
+                <Label Text="Participantes: " Margin="10" Padding="10" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center" />
+                <Label Text="{Binding NumeroEvento}"
+                       TextColor="{StaticResource Magenta}" />
+
+                <Label Text="Local: " Margin="10" Padding="10" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding LocalEvento}"
+                       TextColor="{StaticResource Magenta}" />
+
+                <Label Text="Custo: " Margin="10" Padding="10" 
+                       VerticalTextAlignment="Center"
+                       HorizontalTextAlignment="Center"/>
+                <Label Text="{Binding CustoEvento}"
+                       TextColor="{StaticResource Magenta}" />
+
+
+
+            </HorizontalStackLayout>
+            
+            
+            
+            
+        </Frame>
+
+        <Frame Margin="10">
+            <Grid ColumnDefinitions="*, *, *"
+                  RowDefinitions="Auto, Auto">
+                <Label Grid.Row="0" Grid.Column="0" Text="Início" />
+                <Label Grid.Row="0" Grid.Column="1" Text="Término" />
+                <Label Grid.Row="0" Grid.Column="2" Text="Período" />
+
+                <Label Grid.Row="1" Grid.Column="0" Text="{Binding DataInicio, StringFormat='{}{0:dd/MM/yyyy'}" 
+                       TextColor="{StaticResource Magenta}"/>
+                
+                <Label Grid.Row="1" Grid.Column="1" Text="{Binding DataTermino, StringFormat='{}{0:dd/MM/yyyy'}" 
+                       TextColor="{StaticResource Magenta}"/>
+                
+                <Label Grid.Row="1" Grid.Column="2" Text="{Binding Periodo}"
+                       TextColor="{StaticResource Magenta}"/>
+                
+            </Grid>
+                        
+        </Frame>
+
+        <Frame Margin="10">
+            
+            
+        </Frame>
+
+        <Button Text="Voltar" 
+                HorizontalOptions="Center"
+                Clicked="Button_Clicked" />
+
+
+    </VerticalStackLayout>
+</ContentPage>

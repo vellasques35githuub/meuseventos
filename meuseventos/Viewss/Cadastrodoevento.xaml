@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="meuseventos.Viewss.Cadastrodoevento"
+             Title="Cadastrodoevento"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundColor="{StaticResource Black}">
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand">
+
+        
+
+            <Image
+    Source="dotnet_bot.png"
+    HeightRequest="100"/>
+
+
+
+            <Label Text="Cadastro Do Evento"
+               HorizontalTextAlignment="Center"
+            FontFamily="OpenSansRegular"
+               FontSize="30"
+               TextColor="{StaticResource Magenta}"/>
+
+        <Frame Padding="10">
+            <VerticalStackLayout>
+                <Grid RowDefinitions="Auto, Auto"
+                      ColumnDefinitions="*, *, 2*">
+
+                    <Label Grid.Row="0" Grid.Column="0"
+                           Text="Homens:" />
+
+                    <Label Grid.Row="0" Grid.Column="1"
+                           TextColor="{StaticResource Magenta}"
+                           Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_homens}"/>
+                           
+                    <Stepper Grid.Row="0" Grid.Column="2"
+                             x:Name="stp_homens"
+                             Minimum="0"
+                             Maximum="10"
+                             Increment="1" />
+
+                    <Label Grid.Row="1" Grid.Column="0"
+                           Text="Mulheres:" />
+
+                    <Label Grid.Row="1" Grid.Column="1"
+                           TextColor="{StaticResource Magenta}"
+                           Text="{Binding Value}" 
+                           BindingContext="{x:Reference stp_mulheres}"/>      
+
+                    <Stepper Grid.Row="1" Grid.Column="2"
+                           x:Name="stp_mulheres"
+                           Minimum="0"
+                           Maximum="10"
+                           Increment="1" />
+
+                </Grid>
+
+                <Label Text="Escolha seu Evento" />
+
+                <Picker x:Name="pck_evento"
+                        Title="Selecione seu Evento" 
+                        ItemDisplayBinding="{Binding Descricao}"/>
+                
+
+
+                <Frame Padding="10"
+                       Margin="10">
+
+                    <VerticalStackLayout Spacing="10" Padding="10">
+
+                        <Label Text="Nome do Evento" />
+                        <Entry x:Name="txt_nome"
+                               Text="{Binding Value}" 
+                               BindingContext="{x:Reference txt_nome}"/>
+                        
+                        <Label Text="Número de Participantes" />
+                        <Entry x:Name="txt_numero"                                Text="{Binding Value}" 
+                               BindingContext="{x:Reference txt_numero}"/>
+                        
+                        <Label Text="Local do Evento" />
+                        <Entry x:Name="txt_local"                                Text="{Binding Value}" 
+                               BindingContext="{x:Reference txt_local}"/>
+                        
+                        <Label Text="Custo do Evento" />
+                        <Entry x:Name="txt_Custo"                                Text="{Binding Value}" 
+                               BindingContext="{x:Reference txt_Custo}"/>
+                        
+                        <Label Text="Período do Evento"/>
+                        <HorizontalStackLayout>
+                            <Label Text="Início:" />
+                            <DatePicker x:Name="dtpck_inicio"
+                                        DateSelected="dtpck_inicio_DateSelected"
+                                        Format="dd/MM/yyyy" />                            
+                        </HorizontalStackLayout>
+
+                        <HorizontalStackLayout>
+                            <Label Text="Término:" />
+                            <DatePicker x:Name="dtpck_termino"
+                                        Format="dd/MM/yyyy" />
+                        </HorizontalStackLayout>
+
+                    </VerticalStackLayout>                    
+                    
+                </Frame>
+
+                <Button Text="Avançar" Clicked="Button_Clicked" />
+            </VerticalStackLayout>
+            
+        </Frame>
+    </VerticalStackLayout>
+</ContentPage>
